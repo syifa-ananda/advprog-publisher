@@ -105,3 +105,15 @@ If we only use the Model, each entity like Program, Subscriber, and Notification
 Postman helps us test our API by letting us make requests (GET, POST, etc.) and see the responses. We can save our endpoints in Collections, switch environments (like local or production), and even write scripts to automate tests. It’s a quick way to confirm our code works before we deploy.
 
 #### Reflection Publisher-3
+
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+This tutorial uses the Push variation, where the publisher (the application) sends the full notification data (title, product type, etc.) directly to each subscriber, rather than having subscribers request or pull updates.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+If we used the Pull variation, subscribers would be responsible for requesting the latest data from the publisher whenever they receive a notification signal. The advantage is that subscribers can decide how much or what part of the data they actually need. However, the downside is increased complexity and potential delays, subscribers need to actively fetch the data, which might lead to missed or late updates if they don’t poll frequently enough.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Without multi-threading, the program would send each notification in sequence, potentially blocking other operations while waiting for network requests to finish. This can slow down the entire system, especially if there are many subscribers or the HTTP requests are slow.
