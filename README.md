@@ -92,4 +92,16 @@ The Singleton pattern is all about ensuring that only one instance of a certain 
 
 #### Reflection Publisher-2
 
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Because it keeps things organized. The Model only holds data structures. The Service handles the business logic like rules and checks. The Repository deals with database actions like saving or retrieving data. Splitting them up makes the code easier to read, test, and change later on.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+If we only use the Model, each entity like Program, Subscriber, and Notification would have to handle every data, business logic, and even inter model communication. This means the Program model might need to decide when and how to notify subscribers, while the Subscriber model could be involved in managing notifications directly. Such overlapping responsibilities create tightly coupled code, making it hard to modify one part without affecting others. The result is a more complex, error-prone system that’s difficult to maintain and test.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Postman helps us test our API by letting us make requests (GET, POST, etc.) and see the responses. We can save our endpoints in Collections, switch environments (like local or production), and even write scripts to automate tests. It’s a quick way to confirm our code works before we deploy.
+
 #### Reflection Publisher-3
