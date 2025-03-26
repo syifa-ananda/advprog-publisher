@@ -28,6 +28,7 @@ use dashmap::DashMap;
 
         return SUBSCRIBERS.get(product_type).unwrap().iter()
             .map(|f| f.value().clone()).collect();
+    }
 
     pub fn delete(product_type: &str, url: &str) -> Option<Subscriber> {
          if SUBSCRIBERS.get(product_type).is_none() {
@@ -39,6 +40,5 @@ use dashmap::DashMap;
              return Some(result.unwrap().1);
          }
          return None;
-        }    
     }    
-}
+}    
